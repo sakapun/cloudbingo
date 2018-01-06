@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-for="rowIndex in Array.from(Array(5).keys())"
-         :key="rowIndex">
-      <Cell :num="rowIndex" />
+    <div v-for="cellNumber in colNumbers"
+         :key="cellNumber">
+      <Cell :num="cellNumber" />
     </div>
   </div>
 </template>
@@ -13,6 +13,12 @@ export default {
   name: "BingoColumns",
   components: {
     Cell
+  },
+  props: {
+    colNumbers: {
+      type: Array,
+      required: true
+    }
   }
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="cell">
-    {{ num }}
+    {{ computedNum }}
   </div>
 </template>
 
@@ -11,6 +11,11 @@ export default {
     num: {
       type: Number,
       required: true
+    }
+  },
+  computed: {
+    computedNum () {
+      return this.num === 0 ? "★" : this.num;
     }
   }
 };

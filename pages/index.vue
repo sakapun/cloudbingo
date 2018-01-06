@@ -1,29 +1,17 @@
 <template>
   <section class="container">
-    <div class="bingo-wrap">
-      <Bingo />
-      <Bingo />
-      <Bingo />
-      <Bingo />
-      <Bingo />
-    </div>
+    <BingoCard />
   </section>
 </template>
 
 <script>
-import Bingo from "../components/Molucules/BingoColumn";
+import BingoCard from "../components/Organisms/BingoCard";
 export default {
   components: {
-    Bingo
+    BingoCard
   }
 };
 </script>
 
 <style>
-  .bingo-wrap {
-    border: #47494e 1px solid;
-    width: 250px;
-    height: 250px;
-    display: flex;
-  }
 </style>
