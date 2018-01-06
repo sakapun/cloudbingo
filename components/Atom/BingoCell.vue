@@ -1,10 +1,12 @@
 <template>
-  <div class="cell">
+  <div class="cell" :class="{isSelected: isSelected}">
     {{ computedNum }}
   </div>
 </template>
 
 <script>
+import {mapState} from "vuex";
+
 export default {
   name: "BingoCell",
   props: {
@@ -16,7 +18,13 @@ export default {
   computed: {
     computedNum () {
       return this.num === 0 ? "★" : this.num;
-    }
+    },
+    isSelected () {
+      return this.selectedNumbers.find(number => number === this.num);
+    },
+    ...mapState("nowGame", [
+      "selectedNumbers"
+    ])
   }
 };
 </script>
@@ -32,5 +40,9 @@ export default {
   align-items: center;
   justify-content: center;
 
+}
+
+.isSelected {
+  background: #7f828b;
 }
 </style>

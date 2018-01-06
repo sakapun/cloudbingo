@@ -18,6 +18,30 @@ const getDefault = () => {
 };
 
 export default {
+  modules: {
+    nowGame: {
+      namespaced: true,
+      state () {
+        return {
+          selectedNumbers: [0],
+          leftNumbers: _range(1, 76)
+        };
+      },
+
+      mutations: {
+        addSelected (state) {
+          if (state.leftNumbers.length === 0) {
+            return;
+          }
+          const newNum = _shuffle(state.leftNumbers)[0];
+          const removeIndex = state.leftNumbers.findIndex(num => num === newNum);
+
+          state.selectedNumbers.push(newNum);
+          state.leftNumbers.splice(removeIndex, 1);
+        }
+      }
+    }
+  },
   state () {
     return getDefault();
   }
