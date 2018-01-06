@@ -1,19 +1,34 @@
 module.exports = {
   root: true,
-  parser: "babel-eslint",
+  parserOptions: {
+    "parser": "babel-eslint",
+    "ecmaVersion": 2017,
+    "sourceType": "module"
+  },
   env: {
     browser: true,
     node: true
   },
-  extends: "standard",
+  extends: [
+    "standard",
+    "plugin:vue/recommended"
+  ],
   // required to lint *.vue files
   plugins: [
-    "html"
+    "vue"
   ],
   // add your custom rules here
   rules: {
     quotes: ["error", "double"],
-    semi: ["error", "always"]
+    semi: ["error", "always"],
+
+    "vue/max-attributes-per-line": [2, {
+      "singleline": 2,
+      "multiline": {
+        "max": 1,
+        "allowFirstLine": true
+      }
+    }]
   },
   globals: {}
 }

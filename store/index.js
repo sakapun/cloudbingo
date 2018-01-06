@@ -1,5 +1,7 @@
 export default {
-  state: {
-    a: "b"
+  state () {
+    return {
+      a: "b"
+    };
   }
 };
