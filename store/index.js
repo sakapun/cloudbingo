@@ -1,4 +1,8 @@
-import {range as _range, shuffle as _shuffle} from "lodash";
+import {
+  range as _range,
+  shuffle as _shuffle,
+  flatMap as _flatMap
+} from "lodash";
 
 const getColumnNumbers = (startNum, endNum) => {
   return _shuffle(_range(startNum, endNum)).splice(1, 5);
@@ -44,5 +48,10 @@ export default {
   },
   state () {
     return getDefault();
+  },
+  getters: {
+    allMyNumbers (state) {
+      return _flatMap([state.colB, state.colI, state.colN, state.colG, state.colO]);
+    }
   }
 };
